@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABC Toys - Location</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-light bg-warning sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">ABC Toys</a>
+
+            <div>
+                <a class="nav-link d-inline-block" href="index.html">Home</a>
+                <a class="nav-link d-inline-block" href="products.html">Products</a>
+                <a class="nav-link d-inline-block" href="contact.html">Contact</a>
+                <a class="nav-link d-inline-block" href="location.html">Location</a>
+                <a class="nav-link d-inline-block" href="extra.html">More</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    
+    <div class="container mt-5">
+
+        <h1>Our Location</h1>
+
+        <h3>Find your location!</h3>
+
+        <p>Click the button below to see your current location.</p>
+
+        <div class="text-center mt-4">
+
+            <button class="btn btn-warning" onclick="getLocation()">
+                Find My Location
+            </button>
+
+            <p id="latitude" class="mt-4">Latitude: </p>
+
+            <p id="longitude">Longitude: </p>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(showPosition);
+
+            } else {
+
+                document.getElementById("message").innerHTML =
+                "Geolocation is not supported by your browser.";
+
+            }
+
+        }
+
+        function showPosition(position) {
+
+            document.getElementById("latitude").innerHTML =
+            "Latitude: " + position.coords.latitude;
+
+            document.getElementById("longitude").innerHTML =
+            "Longitude: " + position.coords.longitude;
+
+        }
+
+    </script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
